@@ -28,9 +28,19 @@ class App extends React.Component {
 	}
 }
 // end::app[]
-
-// tag::employee-list[]
+	
 class EmployeeList extends React.Component{
+
+	constructor(props)
+	{	
+		super(props);
+		this.handleClick = this.handleClick.bind(this);
+	}
+	
+	handleClick() {
+		console.log("Button Clicked");
+	}
+	  
 	render() {
 		const employees = this.props.employees.map(employee =>
 			<Employee  employee={employee}/>
@@ -45,13 +55,23 @@ class EmployeeList extends React.Component{
 					</tr>
 					{employees}
 				</tbody>
+				<button onClick={this.handleClick}>Click</button>
 			</table>
+			
 		)
 	}
 }
-// end::employee-list[]
 
-// tag::employee[]
+
+class First extends React.Component{
+	render() {
+		return (
+			<h1>Hello World</h1>
+		)
+	}
+}
+
+
 class Employee extends React.Component{
 	render() {
 		return (
